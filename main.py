@@ -34,6 +34,6 @@ def searchinfile(filename, filteredfilename, regexpattern):
         with io.open(filteredfilename, "w", encoding="utf-8") as f:
             for l in lines:
                 ls = re.search(p, l)
-                if ls: # If there is a match
-                    f.write(ls.group() + '\n') # Add it to the output file
-            f.close() # protect memory integrity by closing operation
+                if ls:  # If there is a match
+                    f.write(ls.group() + '\n')  # Add it to the output file
+            f.close()  # protect memory integrity by closing operation
