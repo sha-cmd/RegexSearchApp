@@ -13,18 +13,15 @@ import re
 def searchinfile(filename, filteredfilename, regexpattern):
     """This function take a source file with text, apply a pattern to search
     the matched part of string line in the entire file.
-    
-    @filename : the name of the text. It must have been encoded in utf-8 to 
-    be nicely printed on a utf-8 encoding system. Do not forget to add the 
-    format if there is one for your file.
-    
-    @filteredfilename : the name of the output file. You should not forget the
-    format.
-    
-    @regexpattern : the pattern might be given in rawstring.
-    
-    """
 
+    :param filename: the name of the text. It must have been encoded in utf-8 to
+    be nicely printed on a utf-8 encoding system. Do not forget to add the
+    format if there is one for your file.
+    :param filteredfilename: the name of the output file. You should not forget the
+    format.
+    :param regexpattern:  the pattern might be given in rawstring.
+    :return:
+    """
     with open(filename, encoding='utf-8') as f:
         # Loading the file in a variable
         lines = f.readlines()
@@ -39,6 +36,14 @@ def searchinfile(filename, filteredfilename, regexpattern):
             f.close()  # protect memory integrity by closing operation
 
 def addinfile(filename, filteredfilename, regexpattern, regexsubstitution):
+    """
+
+    :param filename:
+    :param filteredfilename:
+    :param regexpattern:
+    :param regexsubstitution:
+    :return:
+    """
     with open(filename, encoding='utf-8') as f:
         # Loading the file in a variable
         lines = f.readlines()
