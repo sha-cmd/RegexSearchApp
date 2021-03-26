@@ -37,3 +37,18 @@ def searchinfile(filename, filteredfilename, regexpattern):
                 if ls:  # If there is a match
                     f.write(ls.group() + '\n')  # Add it to the output file
             f.close()  # protect memory integrity by closing operation
+
+def addinfile(filename, filteredfilename, regexpattern, regexsubstitution):
+    with open(filename, encoding='utf-8') as f:
+        # Loading the file in a variable
+        lines = f.readlines()
+        # Creation of the output file
+        with io.open(filteredfilename, "w", encoding="utf-8") as f:
+            for line in lines:
+                transformed_line = re.sub(regexpattern, regexsubstitution, line)
+                if len(transformed_line) > 0:  # Controlling of an existent match, if not write as it is.
+                    print(line, transformed_line)  # To Do : streaming of the output file
+                    f.writelines(transformed_line)
+                else:
+                    f.writelines(line)
+            f.close()
